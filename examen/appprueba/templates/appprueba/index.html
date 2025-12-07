@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+    <h1>Editores...</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Filtrar</button>
+    </form>
+    
+    {% if editores %}
+        <ul>
+            {% for editor in editores %}
+                <li>
+                    {{ editor.nombre }} - {{ editor.nif }} {{editor.pais}}
+                    
+                    <!--Por el uso de el namespace como se ejecuta desde la raiz, puedo acceder a las distintas views de las distintas apps-->
+                    <a href="{% url 'appprueba:editor_detail' editor.pk %}">Consultar</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+{% endblock content %}

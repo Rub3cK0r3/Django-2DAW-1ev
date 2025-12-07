@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h2>Los libros del editor</h2>
+<ul>
+    {% for bookinstance in editor_libros %}
+        <li> {{ bookinstance.pk }} ({{ bookinstance.editor.nif }})
+
+            {{ bookinstance.editor.pais }}
+
+            <!--Por el uso de el namespace como se ejecuta desde la raiz, puedo acceder a las distintas views de las distintas apps-->
+            <a href="{% url 'catalog:administrar_libros_editor' bookinstance.pk %}">Consultar</a>
+        </li>
+    {% endfor %}
+</ul>
+      
+{% endblock %}

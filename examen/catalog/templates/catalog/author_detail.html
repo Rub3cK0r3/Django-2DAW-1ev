@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+    <h1>Pagina de detalle de autores</h1>
+
+    {% if object.date_of_birth %}
+        <p>Fallecio el {{ object.date_of_birth }}</p>
+    {% else %}
+        <p>No esta registrado su nacimiento</p>
+    {% endif %}
+
+    <p>Nacio el {{ object.date_of_birth }} </p>
+
+    {% if object.date_of_death %}
+        <p>Fallecio el {{ object.date_of_death }}</p>
+    {% else %}
+        <p>No esta registrado su fallecimiento</p>
+    {% endif %}
+
+    <p>Sus libros son:
+        {{ object.books }}
+    </p>
+
+    <p><a href="{% url 'authors' %}">Volver a los autores</a></p>
+
+{% endblock content %}

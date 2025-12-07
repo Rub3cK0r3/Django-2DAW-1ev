@@ -1,0 +1,28 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h2>Libro....</h2>
+    <p>Titulo: {{ bookinstance.book.title }}</p>
+    <p>Autor: {{ bookinstance.book.author }}</p>
+    <p>Contenido: {{ bookinstance.book.summary }}</p>
+    <p>Editor: {{ bookinstance.editor.nombre }}</p> <!--Aunque tambien me valdria solo el editor por el __str__ -->
+    <h2>Generos asociados</h2>
+        <ul>
+            {% for genero in bookinstance.book.genre.all %}
+                <li>
+                    {{ genero.name }}
+                    <a href="{% url 'catalog:eliminar_genero_libro' genero.pk bookinstance.pk %}">
+                        <button>Quitar</button>
+                    </a>
+                </li>
+            {% endfor%}
+         </ul>
+        <hr>
+        <h2>Añadir género</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ formulario_generos }}
+            <button type="submit" name="crear_genero">Asignar</button>
+        </form>
+        <a href="{{ bookinstance.get_absolute_url }}" name="boton_editar_libro">Editar libro...</a>
+{% endblock %}

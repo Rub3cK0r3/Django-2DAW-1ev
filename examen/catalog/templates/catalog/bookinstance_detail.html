@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h2>Editar...:libro</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form_libro }}
+        <h2>Generos</h2>
+        <hr>
+        {{ form_generos_check }}
+        {{ form_add_genre }}
+        <button type="submit">Guardar</button>
+    </form>
+{% endblock %}
