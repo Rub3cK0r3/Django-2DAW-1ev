@@ -21,11 +21,6 @@ It has one main project (`examen`) and two apps:
 ## How to run
 
 1. Go to project folder:
-
-```bash
-cd "Documentos/EXAMEN DJANGO 1ºEV/examen"
-````
-
 2. Create virtual environment and install dependencies:
 
 ```bash
