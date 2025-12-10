@@ -24,8 +24,8 @@ urlpatterns = [
 
     # concepto de namespace
 
-    path('catalog/',include('catalog.urls','catalog')), # ASI es como añado el NAMESPACE
-    path('appprueba/',include('appprueba.urls','appprueba')),
+    path('catalog/',include('catalog.urls')),
+    path('appprueba/',include('appprueba.urls')),
 
 ]
 
