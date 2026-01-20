@@ -6,4 +6,4 @@ class FormularioFiltroEditores(forms.Form):
         max_length=50,
         required=False, # es un filtro opcional
         widget=forms.TextInput()
-    )
+    ) 
