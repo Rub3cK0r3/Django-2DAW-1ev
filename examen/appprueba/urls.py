@@ -20,7 +20,11 @@ urlpatterns = [
 ]
 
 # NUEVA URL para REDIRECCION usando REDIRECT hacia la aplicacion de catalog
-urlpatterns += path('sacalibros/<int:pk>',views.redireccionar_editor,name='editor_detail'),
+urlpatterns += [
+    path('sacalibros/<int:pk>',views.redireccionar_editor,name='editor_detail'),
+]
 
 # La unica ListView que se nos es permitida en el examen
-urlpatterns += path('editores/',views.EditorListView.as_view(),name='editor_list_view'),
+urlpatterns += [ 
+    path('editores/',views.EditorListView.as_view(),name='editor_list_view'),
+]
